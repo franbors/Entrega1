@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Busqueda Clientes
+{% endblock %}
+
+{% block contenido %}
+
+
+<body>
+    <div class="container text-center m-2">
+    <div class="rounded d-inline-block p-3 mb-2 bg-secondary text-white"><b>Clientes encontrados</b></div>  
+    </div>  
+        <div class="container">
+            <div class="row">
+                {% for cliente in cliente %}  
+                <div class="col-3">  
+                <div class="card m-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{cliente.nombre}} {{cliente.apellido}}</h5>
+                        <p class="card-text">Pasaporte: {{cliente.pasaporte}}</p>
+                        <p class="card-text">Vencimiento: {{cliente.vencimiento}}</p>
+                        <p class="card-text">DNI: {{cliente.dni}}</p>
+                        <p class="card-text">Domicilio: {{cliente.domicilio}}</p>
+                        <p class="card-text">Telefono: {{cliente.telefono}}</p>
+                    </div>
+                </div>
+                </div>  
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+
+{%endblock%}

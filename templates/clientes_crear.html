@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Crear Cliente
+{% endblock %}
+
+{% block contenido %}
+<body>
+    <div class="container text-center m-2">
+    <div class="rounded d-inline-block p-3 mb-2 bg-secondary text-white"><b>Crear Cliente Nuevo</b></div>  
+    </div>  
+        <div class="container">
+            <div class="row">
+<h5>
+    {%if form%}
+						<form action = '', method="POST">
+							{% csrf_token %} 
+							<table>
+							{{form.as_table}}
+							</table>
+							<input type = 'submit', value = 'Enviar'>
+						</form>
+						{%elif new_customer %}
+						<div class="col-3">  
+							<div class="card m-2" style="width: 18rem;">
+								<div class="card-body">
+									<h5 class="card-title text-center">{{new_customer.nombre}} {{new_customer.apellido}}</h5>
+									<p class="card-text">Pasaporte: {{new_customer.pasaporte}}</p>
+									<p class="card-text">Vencimiento: {{new_customer.vencimiento}}</p>
+									<p class="card-text">DNI: {{new_customer.dni}}</p>
+									<p class="card-text">Domicilio: {{new_customer.domicilio}}</p>
+									<p class="card-text">Telefono: {{new_customer.telefono}}</p>
+								</div>
+							</div>
+							</div>  
+
+						{%endif%}
+						</h5>
+					</div>
+				</div>
+			</div>
+		</body>
+{% endblock %}

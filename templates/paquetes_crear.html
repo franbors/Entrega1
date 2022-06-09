@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Crear Paquete
+{% endblock %}
+
+{% block contenido %}
+<body>
+    <div class="container text-center m-2">
+    <div class="rounded d-inline-block p-3 mb-2 bg-secondary text-white"><b>Crear Paquete Nuevo</b></div>  
+    </div>  
+        <div class="container">
+            <div class="row">
+<h5>
+    {%if form%}
+						<form action = '', method="POST">
+							{% csrf_token %} 
+							<table>
+							{{form.as_table}}
+							</table>
+							<input type = 'submit', value = 'Enviar'>
+						</form>
+						{%elif nuevo_paquete %}
+
+						<div class="col-3">  
+							<div class="card m-2" style="width: 18rem;">
+								<div class="card-body">
+									<h5 class="card-title text-center">{{nuevo_paquete.destino}}</h5>
+									<p class="card-text">{{nuevo_paquete.descripcion}}</p>
+									<p class="card-text">Cantidad de dias: {{nuevo_paquete.dias}}</p>
+									<p class="card-text">Fecha de Partida: {{nuevo_paquete.fecha_partida}}</p>
+									<p class="card-text">Fecha de Regreso: {{nuevo_paquete.fecha_regreso}}</p>
+									<p class="card-text">Precio publico: {{nuevo_paquete.precio_publico}}</p>
+									<p class="card-text">Precio costo: {{nuevo_paquete.costo}}</p>
+									<p class="card-text">Precio oferta: {{nuevo_paquete.oferta}}</p>
+									<p class="card-text">Precio activo: {{nuevo_paquete.activo}}</p>
+								</div>
+							</div>
+							</div>  
+						
+						{%endif%}
+						</h5>
+					</div>
+				</div>
+			</div>
+		</body>
+{% endblock %}

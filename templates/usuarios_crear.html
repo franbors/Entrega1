@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Crear Usuario
+{% endblock %}
+
+{% block contenido %}
+<body>
+    <div class="container text-center m-2">
+    <div class="rounded d-inline-block p-3 mb-2 bg-secondary text-white"><b>Crear Usuario Nuevo</b></div>  
+    </div>  
+        <div class="container">
+            <div class="row">
+<h5>
+    {%if form%}
+						<form action = '', method="POST">
+							{% csrf_token %} 
+							<table>
+							{{form.as_table}}
+							</table>
+							<input type = 'submit', value = 'Enviar'>
+						</form>
+						{%elif nuevo_usuario %}
+
+						<div class="col-3">  
+							<div class="card m-2" style="width: 18rem;">
+								<div class="card-body">
+									<h5 class="card-title text-center">{{nuevo_usuario.usuario}}</h5>
+									<p class="card-text">Tipo de usuario: {{nuevo_usuario.usertype}}</p>
+									<p class="card-text">Password: {{nuevo_usuario.password}}</p>
+									<p class="card-text">Last Login: {{nuevo_usuario.last_login}}</p>
+									<p class="card-text">Activo: {{nuevo_usuario.active}}</p>
+								</div>
+							</div>
+							</div>  
+						
+						{%endif%}
+						</h5>
+					</div>
+				</div>
+			</div>
+		</body>
+{% endblock %}

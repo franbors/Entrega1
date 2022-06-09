@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Listado Paquetes
+{% endblock %}
+
+{% block contenido %}
+
+<body>
+    <div class="container text-center m-2">
+    <div class="rounded d-inline-block p-3 mb-2 bg-secondary text-white"><b>Paquetes</b></div>  
+    </div>  
+        <div class="container">
+            <div class="row">
+                {% for paquete in paquetes %}  
+                <div class="col-3">  
+                <div class="card m-2" style="width: 18rem;">
+                    <div class="card-body">
+                    <h5 class="card-title text-center">{{paquete.destino}}</h5>
+                    <p class="card-text">Descripcion: {{paquete.descripcion}}</p>
+					<p class="card-text">Cantidad de dias: {{paquete.dias}}</p>
+					<p class="card-text">Fecha de partida: {{paquete.fecha_partida}}</p>
+					<p class="card-text">Fecha de regreso: {{paquete.fecha_regreso}}</p>
+                    <p class="card-text">Precio publico: {{paquete.precio_publico}}</p>
+                    <p class="card-text">Costo: {{paquete.costo}}</p>
+                    <p class="card-text">Oferta: {{paquete.oferta}}</p>
+                    <p class="card-text">Activo: {{paquete.activo}}</p>
+
+                    </div>
+                </div>
+                </div>  
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+
+{%endblock%}

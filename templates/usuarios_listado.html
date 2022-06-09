@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Listado Usuarios
+{% endblock %}
+
+{% block contenido %}
+
+<body>
+    <div class="container text-center m-2">
+    <div class="rounded d-inline-block p-3 mb-2 bg-secondary text-white"><b>Usuarios</b></div>  
+    </div>  
+        <div class="container">
+            <div class="row">
+                {% for usuario in usuarios %}  
+                <div class="col-3">  
+                <div class="card m-2" style="width: 18rem;">
+                    <div class="card-body">
+                    <h5 class="card-title text-center">{{usuario.usuario}}</h5>
+                    <p class="card-text">Tipo de usuario: {{usuario.usertype}}</p>
+					<p class="card-text">Password: {{usuario.password}}</p>
+					<p class="card-text">Fecha de ultima conexion: {{usuario.last_login}}</p>
+					<p class="card-text">Activo: {{usuario.activo}}</p>
+					
+                    </div>
+                </div>
+                </div>  
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+
+{%endblock%}
